@@ -5,27 +5,30 @@
 ### Introduction to Operating System Design
 
 #### OS Design Overview
-Different tasks are typically handled by dedicated software. For example:
-- **Chatting with friends/social media:** Use a web browser (e.g., Chrome).
-- **Working on assignments:** Use a text editor (e.g., MS Word).
 
-These software are **application-dependent** and are referred to as **application/user software.**
+Different tasks are often assigned to dedicated software. For example:
+- **Chatting with friends/social media:** Use a web browser (e.g., Chrome).
+- **Completing assignments:** Use a text editor (e.g., MS Word).
+
+These types of software are **application-dependent**, meaning they are designed for specific tasks and are referred to as **application/user software.**
 
 **Computer Hardware Components:**
 - **CPU/Processor**
 - **Memory/RAM**
-- **I/O Devices**
+- **I/O Devices** (Keyboard, Mouse, Printer, etc.)
 
-The **Operating System (OS)** acts as an intermediate software layer between application software and hardware. It facilitates communication and resource management across various processes.
+The **Operating System (OS)** serves as an intermediary between application software and hardware, ensuring communication and resource management.
 
 Key points:
-- The OS is not used directly; instead, it manages application execution.
-- Users do not manually allocate resources; the OS does it dynamically.
-- OS manages processes, memory, security, file management, and more.
+- Users interact with application software, which in turn runs on hardware.
+- The OS manages the execution of multiple software applications simultaneously.
+- Users do not manually control resource allocation; the OS handles it.
 
-The efficiency and usability of an OS are the primary measures of its quality. Different OSs prioritize different aspects based on user needs.
+The OS ensures that various processes such as memory management, security, and file management are handled efficiently. As software complexity increases, frequent OS updates are required.
 
-This course will explore **core concepts of operating systems**, distinct from application software development.
+A good OS is measured by how user-friendly and efficient it is.
+
+This course will explore **core concepts of operating system software**, which differ from application software development.
 
 ---
 
@@ -34,16 +37,13 @@ This course will explore **core concepts of operating systems**, distinct from a
 A computer system can be divided into four major components:
 
 1. **Hardware:**
-   - Interacts with software and provides computing resources (CPU, memory, I/O devices).
-
+   - Provides the basic computing resources (CPU, memory, I/O devices).
 2. **Operating System:**
-   - Manages the hardware and acts as an intermediary between applications and hardware.
-
+   - Manages hardware and serves as an intermediary for applications.
 3. **Application Programs:**
-   - Software such as word processors, browsers, etc.
-
+   - Define how system resources are used (e.g., word processors, browsers).
 4. **Users:**
-   - The end-users of the system.
+   - People, machines, or other computers using the system.
 
 
 #### Abstract Hierarchical View
@@ -56,16 +56,15 @@ A computer system can be divided into four major components:
 
 1. **User Convenience:**
    - Execute user programs efficiently.
-   - Simplify the problem-solving process.
-
+   - Simplify problem-solving.
 2. **System Utilization:**
-   - Ensure efficient use of hardware resources.
+   - Efficient use of hardware resources.
 
 Example: Quad-core processors contain:
 
 <img src="./b.png">
 
-Due to limited hardware, smart OS management is essential to optimize performance.
+Due to hardware limitations, the OS optimally manages processing capabilities.
 
 ---
 
@@ -73,7 +72,7 @@ Due to limited hardware, smart OS management is essential to optimize performanc
 
 The OS must:
 - Manage all resources efficiently.
-- Resolve conflicting resource requests fairly.
+- Resolve conflicting requests fairly.
 
 #### Example of Resource Allocation
 | Software     | Process | Resource Needed |
@@ -81,7 +80,9 @@ The OS must:
 | Chrome       | P1      | Keyboard         |
 | PowerPoint   | P2      | Keyboard         |
 
-The OS ensures fair allocation based on user interactions.
+If multiple processes require the same resource (e.g., ALU), the OS schedules access logically, not simultaneously.
+
+<img src="./c.png">
 
 ---
 
@@ -90,12 +91,8 @@ The OS ensures fair allocation based on user interactions.
 The OS also prevents errors and improper usage by controlling process execution.
 
 Example of process dependency:
-```
-OS -> P1
-   -> P2
-   -> P3 (depends on P4)
-   -> P4 (runs first due to dependency)
-```
+
+<img src="./d.png">
 
 ---
 
@@ -110,12 +107,9 @@ The **kernel** is the core of an OS and has full control over system operations.
 
 #### Memory Allocation Overview
 
-| RAM Allocation | Description               |
-|----------------|---------------------------|
-| Kernel Space   | Pre-allocated for kernel   |
-| User Space     | Allocated for applications |
+<img src="./e.png">
 
-The **kernel space** and **user space** do not overlap, ensuring system stability.
+The **kernel space** and **user space** do not overlap, ensuring system stability and security.
 
 ---
 
@@ -143,12 +137,8 @@ The OS handles the **Fetch-Execute Cycle**:
 5. Return Result (RR)
 
 #### Visualization of Data Flow
-```
-ALU
-  ^
-  |  (Step 5)
-Registers <- (Steps 1, 2, 3, 4) -> RAM/Cache
-```
+
+<img src="./f.png">
 
 ---
 

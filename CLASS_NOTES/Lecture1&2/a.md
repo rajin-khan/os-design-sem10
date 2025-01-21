@@ -1,10 +1,9 @@
-
 * User
-    * Application Programs
-        * Cannot access hardware directly
-        * Reasons:
-            * Different software vendors may not be trusted.
-            * OS provides a security layer.
+    * Application Programs (cannot access hardware on their own)
+        * Why?
+            * Different software vendors provide applications.
+            * Security risks—applications could corrupt hardware.
+            * OS ensures safe and controlled access.
     * Operating System
         * Manages interaction with:
-            * Computer Hardware (CPU, memory, I/O devices)
+            * Computer Hardware (CPU, Memory, I/O Devices)
